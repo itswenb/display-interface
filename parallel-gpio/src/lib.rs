@@ -1,7 +1,11 @@
 //! Generic parallel GPIO interface for display drivers
 #![no_std]
 
-use embedded_hal::digital::OutputPin;
+#[cfg(feature = "embedded-hal-1-0-0")]
+use embedded_hal_1_0_0::digital::OutputPin;
+
+#[cfg(feature = "embedded-hal-0-2-7")]
+use embedded_hal_0_2_7::digital::v2::OutputPin;
 
 pub use display_interface::{DataFormat, DisplayError, WriteOnlyDataCommand};
 

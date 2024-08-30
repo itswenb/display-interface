@@ -17,5 +17,11 @@ rust-version = "1.75"
 all-features = true
 
 [dependencies]
-embedded-hal = "1.0.0"
+embedded-hal-1-0-0 = { version = "1.0.0", package = "embedded-hal", optional = true }
+embedded-hal-0-2-7 = { version = "0.2.7", package = "embedded-hal", optional = true }
 display-interface = { version = "0.5.0", path = ".." }
+
+[features]
+default = ["embedded-hal-1-0-0"]
+embedded-hal-1-0-0 = ["dep:embedded-hal-1-0-0"]
+embedded-hal-0-2-7 = ["dep:embedded-hal-0-2-7"]
